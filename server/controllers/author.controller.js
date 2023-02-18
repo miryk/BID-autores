@@ -14,6 +14,7 @@ module.exports.getAllAuthors = async (req, res) => {
   }
 }
 
+
 module.exports.createAuthor = async (req, res) => {
   try {
     const newAuthor = await Author.create(req.body);
@@ -66,13 +67,24 @@ module.exports.deleteAuthor = async (req, res) => {
   }
 }
 
-
-module.exports.getAuthorBy = async (req, res) => {
+module.exports.getAuthorById = async (req, res) => {
   try {
-    const authors = await Author.find(req.query);
-    res.json(authors)
+    const getAuthor = await Author.findOne({_id: req.params._id})
+    res.json(getAuthor);
   } catch (err) {
     res.status(400);
     res.json(err.message);
   }
 }
+
+
+// module.exports.getAuthorBy = async (req, res) => {
+//   try {
+//     const authors = await Author.find(req.query);
+//     res.json(authors)
+//   } catch (err) {
+//     res.status(400);
+//     res.json(err.message);
+//   }
+// }
+

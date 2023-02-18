@@ -6,6 +6,7 @@ module.exports = (app) => {
   app.get('/', AuthorController.getAllAuthors);
   app.put('/:_id', AuthorController.updateAuthor);
   app.delete('/:_id', AuthorController.deleteAuthor);
+  app.get('/:_id', AuthorController.getAuthorById);
   // app.put('/', AuthorController.updateQuery);
   // app.delete('/', AuthorController.deleteQuery);
 }
